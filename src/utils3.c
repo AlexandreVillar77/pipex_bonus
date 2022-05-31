@@ -6,22 +6,31 @@
 /*   By: avillar <avillar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 17:32:13 by avillar           #+#    #+#             */
-/*   Updated: 2022/05/31 09:05:21 by avillar          ###   ########.fr       */
+/*   Updated: 2022/05/31 16:14:47 by avillar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/includes.h"
 
-int count_p(char **str)
+void	ft_closing(int *fd, int i)
 {
-    int i;
-    int n;
+	while (i > 0)
+	{
+		close(fd[i - 1]);
+		i--;
+	}
+}
 
-    i = 0;
-    n = -3;
-    while (str[i])
-    {
-        i++;
-    }
-    return (n + i);
+int	count_p(char **str)
+{
+	int	i;
+	int	n;
+
+	i = 0;
+	n = -3;
+	while (str[i])
+	{
+		i++;
+	}
+	return (n + i);
 }

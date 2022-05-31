@@ -6,7 +6,7 @@
 /*   By: avillar <avillar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 11:18:33 by avillar           #+#    #+#             */
-/*   Updated: 2022/05/31 09:33:01 by avillar          ###   ########.fr       */
+/*   Updated: 2022/05/31 16:07:31 by avillar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_arg{
 	char	**envp;
 	char	**argv;
 	int		size;
+	int		*end;
 }				t_arg;
 
 typedef struct s_split{
@@ -60,10 +61,11 @@ void	free_arg(t_arg *arg);
 
 //fichier utils2.c
 int		check_path_access(t_arg *data);
-int		check_fds(char**argv, int n);
+int		check_fds(char**argv, int n, int argc);
 void	ft_cmdnotf(char *str, char *name);
 
 //fichier utils3.c
-int count_p(char **str);
+int		count_p(char **str);
+void	ft_closing(int *fd, int i);
 
 #endif

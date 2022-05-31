@@ -6,7 +6,7 @@
 /*   By: avillar <avillar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 13:33:23 by avillar           #+#    #+#             */
-/*   Updated: 2022/05/31 09:36:21 by avillar          ###   ########.fr       */
+/*   Updated: 2022/05/31 16:51:49 by avillar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,9 +97,9 @@ void	free_arg(t_arg *arg)
 	while (x < arg->size && arg->cmd_arg[x])
 	{
 		i = -1;
-			while (arg->cmd_arg[x][++i])
-				free(arg->cmd_arg[x][i]);
-			free(arg->cmd_arg[x]);
+		while (arg->cmd_arg[x][++i])
+			free(arg->cmd_arg[x][i]);
+		free(arg->cmd_arg[x]);
 		x++;
 	}
 	free(arg->cmd_arg);
