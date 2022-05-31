@@ -6,7 +6,7 @@
 /*   By: avillar <avillar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 11:18:33 by avillar           #+#    #+#             */
-/*   Updated: 2022/05/30 17:35:54 by avillar          ###   ########.fr       */
+/*   Updated: 2022/05/31 09:33:01 by avillar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_arg{
 	char	***cmd_arg;
 	char	**envp;
 	char	**argv;
+	int		size;
 }				t_arg;
 
 typedef struct s_split{

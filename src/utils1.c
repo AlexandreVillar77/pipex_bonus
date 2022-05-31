@@ -6,7 +6,7 @@
 /*   By: avillar <avillar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 13:33:23 by avillar           #+#    #+#             */
-/*   Updated: 2022/05/30 17:57:01 by avillar          ###   ########.fr       */
+/*   Updated: 2022/05/31 09:36:21 by avillar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,10 @@ t_arg	init_arg(t_arg *arg, char **envp, char **argv)
 	i = 2;
 	x = 0;
 	n = count_p(argv);
+	arg->size = n;
+	arg->cmd_arg = malloc(sizeof(arg->cmd_arg) * (n + 1));
+	if (!(arg->cmd_arg))
+		return (*arg);
 	while (n > 0)
 	{
 		arg->cmd_arg[x] = ft_split(argv[i], ' ', 0);
@@ -89,19 +93,13 @@ void	free_arg(t_arg *arg)
 	int	x;
 
 	x = 0;
-	while (arg->cmd_arg[0][0][x])
-	{
-		ft_printf("test %s test\n", arg->cmd_arg[0][0][x]);
-		x++;
-	}
-	x = 0;
-	while (arg->cmd_arg[x])
+	i = -1;
+	while (x < arg->size && arg->cmd_arg[x])
 	{
 		i = -1;
-		while (arg->cmd_arg[x][++i])
-			free(arg->cmd_arg[x][i]);
-		ft_printf("\nhere");
-		free(arg->cmd_arg[x]);
+			while (arg->cmd_arg[x][++i])
+				free(arg->cmd_arg[x][i]);
+			free(arg->cmd_arg[x]);
 		x++;
 	}
 	free(arg->cmd_arg);

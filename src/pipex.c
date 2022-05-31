@@ -6,7 +6,7 @@
 /*   By: avillar <avillar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 11:25:57 by avillar           #+#    #+#             */
-/*   Updated: 2022/05/30 17:58:55 by avillar          ###   ########.fr       */
+/*   Updated: 2022/05/31 09:36:26 by avillar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,9 +127,10 @@ int	main(int argc, char **argv, char **envp)
 		return (1);
 	}
 	data = init_arg(&data, envp, argv);
-	if (check_path_access(&data) == 0)
+	if (data.cmd_arg && check_path_access(&data) == 0)
 		pipex(fd, &data);
 	ft_closing(fd[0], fd[1]);
-	//free_arg(&data);
+	free_arg(&data);
+	//free(data.cmd_arg);
 	return (0);
 }
